@@ -15,9 +15,9 @@ CS30 object orientated programming Project
    - two player option:
      - both left and right paddles that are moved by human input
    - one player options:
-     - hard ai player
-     - medium ai player
-     - easy ai player
+     - hard ai player to play against a human player
+     - medium ai player to play against a human player
+     - easy ai player to play against a human player
    - screen saver option
      - two ai players who can score against eachother
  - Pong Game user interface
