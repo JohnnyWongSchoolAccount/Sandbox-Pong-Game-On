@@ -34,7 +34,7 @@ CS30 object orientated programming Project
  - Functioning ball
    - ball will choose a random starting angle and move to the edges of the pong table
    - ball will bounce off of both right and left paddles
- - Scoreboard
+ - Score board
    - Score board will track and display the points of both players
  - Temporary pause three second pause between scores
    - Count down
