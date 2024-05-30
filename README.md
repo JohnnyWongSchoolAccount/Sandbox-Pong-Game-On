@@ -37,6 +37,8 @@ CS30 object orientated programming Project
  - Scoreboard
    - Score board will track and display the points of both players
  - Temporary pause three second pause between scores
+   - Count down
+     - Durring the temporary pause a count down to the game restarting will initiate
  - Firework effct
    - upon a player scoring, varing in color and size, balls will be drawn effected by gravity to celebrate a score
  - Sound
