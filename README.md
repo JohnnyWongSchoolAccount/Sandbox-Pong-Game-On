@@ -2,7 +2,7 @@
 ---
 CS30 object orientated programming Project
 
-# To Do List
+# Features Present
 ---
  - Main menu user interface
    - Pong button
@@ -12,11 +12,12 @@ CS30 object orientated programming Project
    - title text
      - displayes the title
  - Menu for choosing the game mode
-   - two player option 
+   - two player option:
+     - both left and right paddles that are moved by human input
    - one player options:
      - hard ai player
-     - medium enemy ai player
-     - easy enemy ai player
+     - medium ai player
+     - easy ai player
    - screen saver option
      - two ai players who can score against eachother
  - Pong Game user interface
@@ -35,13 +36,12 @@ CS30 object orientated programming Project
    - ball will bounce off of both right and left paddles
  - Scoreboard
    - Score board will track and display the points of both players
+ - Temporary pause three second pause between scores
+ - Firework effct
+   - upon a player scoring, varing in color and size, balls will be drawn effected by gravity to celebrate a score
  - Sound
  - Text
 # Easter Eggs Pong Features
  ---
- - Power ups
- - Irregular angles of reflection
- - Adding barriers
- - Augmenting game elements GUI
- - Rare easter eggs
- - Editable paddle/ball colors
+ - Second ball
+   - a second ball will appear upon clicking on the pong table while the game is not paused
