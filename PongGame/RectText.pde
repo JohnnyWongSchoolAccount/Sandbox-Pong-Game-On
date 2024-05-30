@@ -18,7 +18,7 @@ class RectText extends Rectangle {
   void portDesign() {
     if (x == titleX) {
       rect(x, y, w, h);
-      rectText("( •, ^ •,) stop looking, this project sucks");//_(:‚‹ l)=
+      rectText("( •, ^ •,) Wong Pong");//_(:‚‹ l)=
     }
   }//end portDesign
   void pongDesign() {
