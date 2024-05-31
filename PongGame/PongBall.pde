@@ -122,11 +122,15 @@ class Ball extends Circle {
     if (this.x <= (playAreaX+w/2) || this.x >= (playAreaX+playAreaW-w/2)) {
       if (this.x <= (playAreaX+w/2)) {
         winConLeft = true;
+        soundEffects[1].rewind();
+        soundEffects[1].play();
         toCenter();
         delayedCode();
         //if (!onePlayer && !screenSaver) pongGameOn = false;
       } else {
         winConRight = true;
+        soundEffects[1].rewind();
+        soundEffects[1].play();
         toCenter();
         delayedCode();
         //if (!onePlayer && !screenSaver) pongGameOn = false;
@@ -166,11 +170,15 @@ class Ball extends Circle {
   void collisionsPaddle() {
     if (x+w >= paddleX && x <= paddleX+paddleW && y >= paddleY && y <= paddleY+paddleH) {
       //if (pongGameOn) firstPaddle.paddleColor = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
+      soundEffects[0].rewind();
+      soundEffects[0].play();
       x = paddleX + paddleW;
       xVelocity *= -1;
     }
     if (x >= paddleX1-(paddleW1/4) && x <= (paddleX1+(w/2)) && y >= paddleY1 && y <= paddleY1+paddleH1) {
       //if (pongGameOn) secondPaddle.paddleColor = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
+      soundEffects[0].rewind();
+      soundEffects[0].play();
       x = paddleX1-paddleW1/2;
       xVelocity *= -1;
     }

@@ -50,6 +50,7 @@ void setupPong() {
 }//end setupPong
 void drawPong() {
   if (pongOn) drawPongOn();
+  songs[currentSong].play();
 }//end drawPong
 void mousePressedPong() {
   if (pongOn) mousePressedPongOn();
