@@ -122,15 +122,25 @@ class Ball extends Circle {
     if (this.x <= (playAreaX+w/2) || this.x >= (playAreaX+playAreaW-w/2)) {
       if (this.x <= (playAreaX+w/2)) {
         winConLeft = true;
-        soundEffects[1].rewind();
-        soundEffects[1].play();
+        if (scoreLeft < 5) {
+          soundEffects[1].rewind();
+          soundEffects[1].play();
+        } else {
+          soundEffects[2].rewind();
+          soundEffects[2].play();
+        }
         toCenter();
         delayedCode();
         //if (!onePlayer && !screenSaver) pongGameOn = false;
       } else {
         winConRight = true;
-        soundEffects[1].rewind();
-        soundEffects[1].play();
+        if (scoreRight < 5) {
+          soundEffects[1].rewind();
+          soundEffects[1].play();
+        } else {
+          soundEffects[2].rewind();
+          soundEffects[2].play();
+        }
         toCenter();
         delayedCode();
         //if (!onePlayer && !screenSaver) pongGameOn = false;
