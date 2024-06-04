@@ -44,12 +44,15 @@ class Ball extends Circle {
     }
   }//end DelayedOn
   void mousePressed() {
-    if ( mouseX>=playAreaX+(w/2.1) && mouseX<=playAreaX+playAreaW-(w/2.1) && mouseY>=playAreaY+(w/2) && mouseY<=playAreaY+playAreaH-(w/2) && pongGameOn) {
-      shapes.get(11).disappear = false;
-      shapes.get(11).x = mouseX;
-      shapes.get(11).y = mouseY;
-    }
+    mousePressedCheatBall(11);
   }//end mousePressed
+  void mousePressedCheatBall(int b2) {
+    if ( mouseX>=playAreaX+(w/2.1) && mouseX<=playAreaX+playAreaW-(w/2.1) && mouseY>=playAreaY+(w/2) && mouseY<=playAreaY+playAreaH-(w/2) && pongGameOn) {
+      shapes.get(b2).disappear = false;
+      shapes.get(b2).x = mouseX;
+      shapes.get(b2).y = mouseY;
+    }
+  }//end mousePressedCheatBall
   //
   void keyPressed() {
     if (key == '2') shapes.get(11).disappear = true;
@@ -65,7 +68,7 @@ class Ball extends Circle {
   void keyReleased()  {}//end keyReleased
   //
   void reset() {
-    toCenter();
+    toCenter(10, 11);
     shapes.get(11).disappear = true;
   }//end reset
   //
@@ -129,7 +132,7 @@ class Ball extends Circle {
           soundEffects[2].rewind();
           soundEffects[2].play();
         }
-        toCenter();
+        toCenter(10, 11);
         delayedCode();
         //if (!onePlayer && !screenSaver) pongGameOn = false;
       } else {
@@ -141,7 +144,7 @@ class Ball extends Circle {
           soundEffects[2].rewind();
           soundEffects[2].play();
         }
-        toCenter();
+        toCenter(10, 11);
         delayedCode();
         //if (!onePlayer && !screenSaver) pongGameOn = false;
       }
@@ -166,15 +169,15 @@ class Ball extends Circle {
       }
     }
   }//end explosions
-  void toCenter() {
-    if (shapes.get(11).disappear) {
+  void toCenter(int b1, int b2) {
+    if (shapes.get(b2).disappear) {
       this.x = playAreaX+(playAreaW/2);
       this.y = playAreaY+(playAreaH/2);
     } else {
-      shapes.get(10).x = playAreaX+(playAreaW/2);
-      shapes.get(10).y = playAreaY+(playAreaH/2)-(w);
-      shapes.get(11).x = playAreaX+(playAreaW/2);
-      shapes.get(11).y = playAreaY+(playAreaH/2)+(w);
+      shapes.get(b1).x = playAreaX+(playAreaW/2);
+      shapes.get(b1).y = playAreaY+(playAreaH/2)-(w);
+      shapes.get(b2).x = playAreaX+(playAreaW/2);
+      shapes.get(b2).y = playAreaY+(playAreaH/2)+(w);
     }
   }//end toCenter
   void collisionsPaddle() {

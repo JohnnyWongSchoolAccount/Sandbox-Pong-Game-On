@@ -77,8 +77,8 @@ class Paddle extends Rectangle {
   void paddleMove() {
     if (paddleUp) paddleUp();
     if (paddleDown) paddleDown();
-    if (onePlayer) rightPaddleAI();
-    if (screenSaver) screenSaver();
+    if (onePlayer) rightPaddleAI(10);
+    if (screenSaver) screenSaver(10);
   }//end paddleMove
   void paddleUp() {
     y -= (paddleTravel);//moving up
@@ -88,8 +88,8 @@ class Paddle extends Rectangle {
     y += (paddleTravel);//moving down
     if (y > pay+pah-h) y = pay+pah-h;//error catch: will not go off screen
   }//end paddleDown
-  void rightPaddleAI() {
-    ballUpdate(shapes.get(10).x, shapes.get(10).y);
+  void rightPaddleAI(int b1) {
+    ballUpdate(shapes.get(b1).x, shapes.get(b1).y);
     if ( ballX > pam ) {
       if (x > pam) {
         if (mai || eai) {
@@ -102,8 +102,8 @@ class Paddle extends Rectangle {
     errorCatchAi();
   }//end rightPaddleAI
   //
-  void screenSaver() {
-    ballUpdate(shapes.get(10).x, shapes.get(10).y);
+  void screenSaver(int b1) {
+    ballUpdate(shapes.get(b1).x, shapes.get(b1).y);
     haimai();
     if ( ballX > pam ) {
       if (x > pam) {//rightPaddle

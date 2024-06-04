@@ -49,7 +49,7 @@ void setupPong() {
   shapes.add(pausedGameText); //Element 19, pausedGameText
 }//end setupPong
 void drawPong() {
-  if (pongOn) drawPongOn();
+  if (pongOn) drawPongOn( 10, 11, 12, 13 );
 }//end drawPong
 void mousePressedPong() {
   if (pongOn) mousePressedPongOn();
@@ -63,10 +63,10 @@ void keyReleasedPong() {
   }
 }//end keyReleasedPong
 //
-void drawPongOn() {
+void drawPongOn(int b1, int b2, int p1, int p2) {
   background(background);
-  shapes.get(10).variablesUpdate(shapes.get(12).x, shapes.get(12).y, shapes.get(12).w, shapes.get(12).h, shapes.get(13).x, shapes.get(13).y, shapes.get(13).w, shapes.get(13).h, 0, 0);
-  shapes.get(11).variablesUpdate(shapes.get(12).x, shapes.get(12).y, shapes.get(12).w, shapes.get(12).h, shapes.get(13).x, shapes.get(13).y, shapes.get(13).w, shapes.get(13).h, 0, 0);
+  shapes.get(b1).variablesUpdate(shapes.get(p1).x, shapes.get(p1).y, shapes.get(p1).w, shapes.get(p1).h, shapes.get(p2).x, shapes.get(p2).y, shapes.get(p2).w, shapes.get(p2).h, 0, 0);
+  shapes.get(b2).variablesUpdate(shapes.get(p1).x, shapes.get(p1).y, shapes.get(p1).w, shapes.get(p1).h, shapes.get(p2).x, shapes.get(p2).y, shapes.get(p2).w, shapes.get(p2).h, 0, 0);
 }//end drawPong
 void mousePressedPongOn() {}//end mousePressedPong
 void keyPressedPongOn() {
