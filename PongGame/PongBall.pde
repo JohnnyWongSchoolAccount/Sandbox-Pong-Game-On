@@ -8,8 +8,8 @@ class Ball extends Circle {
     int referentMeasures = (width<height) ? (width):(height); //ternary Operator = chooses the smaller value
     //object variables //this is "new Ball()"
     this.w = referentMeasures/25;
-    this.xVelocity = xDirection()*3;
-    this.yVelocity = yDirection()*3;
+    this.xVelocity = xDirection()*(width/200);
+    this.yVelocity = yDirection()*(width/200);
     this.c = randomColor();
   }//end Ball
   Ball(float x, float y, float w, float h, color c, float xV, float yV) {
@@ -44,7 +44,7 @@ class Ball extends Circle {
     }
   }//end DelayedOn
   void mousePressed() {
-    mousePressedCheatBall(11);
+    mousePressedCheatBall(15);
   }//end mousePressed
   void mousePressedCheatBall(int b2) {
     if ( mouseX>=playAreaX+(w/2.1) && mouseX<=playAreaX+playAreaW-(w/2.1) && mouseY>=playAreaY+(w/2) && mouseY<=playAreaY+playAreaH-(w/2) && pongGameOn) {
@@ -55,8 +55,8 @@ class Ball extends Circle {
   }//end mousePressedCheatBall
   //
   void keyPressed() {
-    if (key == '2') shapes.get(11).disappear = true;
-    if (key == '1') shapes.get(10).disappear = true;
+    if (key == '2') shapes.get(14).disappear = true;
+    if (key == '1') shapes.get(15).disappear = true;
     if (key == 'p' || key == 'P') { // Press 'p' or 'P' to toggle pause
       isDelayed = !isDelayed;
       if (isDelayed) {
@@ -68,8 +68,9 @@ class Ball extends Circle {
   void keyReleased()  {}//end keyReleased
   //
   void reset() {
-    toCenter(10, 11);
-    shapes.get(11).disappear = true;
+    toCenter(14, 15);
+    shapes.get(14).disappear = false;
+    shapes.get(15).disappear = true;
   }//end reset
   //
   float xDirection() {
@@ -111,7 +112,7 @@ class Ball extends Circle {
   }//end collisonsUpdate
   float paddleX, paddleY, paddleW, paddleH;
   float paddleX1, paddleY1, paddleW1, paddleH1;
-  void variablesUpdate(float x, float y, float w, float h, float x1, float y1, float w1, float h1, float v8, float v9) {
+  void variablesUpdate(float x, float y, float w, float h, float x1, float y1, float w1, float h1, float v8, float v9, float v10, float v11, float v12, float v13) {
     paddleX = x;
     paddleY = y;
     paddleW = w;
@@ -132,7 +133,7 @@ class Ball extends Circle {
           soundEffects[2].rewind();
           soundEffects[2].play();
         }
-        toCenter(10, 11);
+        toCenter(14, 15);
         delayedCode();
         //if (!onePlayer && !screenSaver) pongGameOn = false;
       } else {
@@ -144,7 +145,7 @@ class Ball extends Circle {
           soundEffects[2].rewind();
           soundEffects[2].play();
         }
-        toCenter(10, 11);
+        toCenter(14, 15);
         delayedCode();
         //if (!onePlayer && !screenSaver) pongGameOn = false;
       }
@@ -165,7 +166,7 @@ class Ball extends Circle {
     if (winConRight || winConLeft) {
       if (!disappear) {
         firework = new Firework(x, y, w, w, c);
-        firework.variablesUpdate(w, 0.5, x, y, playAreaX, playAreaY, playAreaW, playAreaH, 0, 0);
+        firework.variablesUpdate(w, 0.5, x, y, playAreaX, playAreaY, playAreaW, playAreaH, 0, 0, 0, 0, 0, 0);
       }
     }
   }//end explosions
@@ -181,18 +182,18 @@ class Ball extends Circle {
     }
   }//end toCenter
   void collisionsPaddle() {
-    if (x+w >= paddleX && x <= paddleX+paddleW && y >= paddleY && y <= paddleY+paddleH) {
+    if (x >= paddleX+(paddleW/4) && x <= paddleX+(paddleW) && y >= paddleY && y <= paddleY+paddleH) {//left paddle
       //if (pongGameOn) firstPaddle.paddleColor = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
       soundEffects[0].rewind();
       soundEffects[0].play();
       x = paddleX + paddleW;
       xVelocity *= -1;
     }
-    if (x >= paddleX1-(paddleW1/4) && x <= (paddleX1+(w/2)) && y >= paddleY1 && y <= paddleY1+paddleH1) {
+    if (x >= paddleX1+(paddleW1/4) && x <= paddleX1+(paddleW1) && y >= paddleY1 && y <= paddleY1+paddleH1) {//right paddle
       //if (pongGameOn) secondPaddle.paddleColor = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
       soundEffects[0].rewind();
       soundEffects[0].play();
-      x = paddleX1-paddleW1/2;
+      x = paddleX1-paddleW1;
       xVelocity *= -1;
     }
   }//end collisionsPaddle

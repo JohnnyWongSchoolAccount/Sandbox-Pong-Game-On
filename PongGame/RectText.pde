@@ -10,8 +10,10 @@ class RectText extends Rectangle {
     draw();
   }//end drawing
   void draw() {
+    this.c = secondaryColor;
     fill(c);
     if (portOn) portDesign();
+    if (modeOn) modeDesign();
     if (pongOn) pongDesign();
     fill(colorReset);
   }//end draw
@@ -21,6 +23,12 @@ class RectText extends Rectangle {
       rectText("( •, ^ •,) Wong Pong");//_(:‚‹ l)=
     }
   }//end portDesign
+  void modeDesign() {
+    if (x == musicSettingsX) {
+      rect(x, y, w, h);
+      rectText("Music");//_(:‚‹ l)=
+    }
+  }//end modeDesign
   void pongDesign() {
     if (x == pauseTextX && !pongGameOn) {
       rect(x, y, w, h);
@@ -37,16 +45,17 @@ class RectText extends Rectangle {
       int seconds = countTime/1000 % 60;//convets time value to seconds to be presented
       rectText(str(seconds));//_(:‚‹ l)=
     }
-  }//end portDesign
+  }//end pongDesign
   void keyPressed() {}//end keyPressed
   void keyReleased() {}//end keyReleased
   void mousePressed() {}//end mousePressed
   void reset() {}//end reset
-  float titleX, countDownX, pauseTextX;
-  void variablesUpdate(float v0, float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8, float v9) {
+  float titleX, countDownX, pauseTextX, musicSettingsX;
+  void variablesUpdate(float v0, float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8, float v9, float v10, float v11, float v12, float v13) {
   titleX = v0;
   countDownX = v1;
   pauseTextX = v2;
+  musicSettingsX = v3;
   }//end variablesUpdate
   void rectText(String firstText) {
     drawText( height, ink, CENTER, CENTER, Font, textSpace+firstText+textSpace, x, y, w, h);
@@ -56,3 +65,4 @@ class RectText extends Rectangle {
     return nightMode;
   }//end Night Mode Color Selector
 }//end RectText
+//end RectText subProgram

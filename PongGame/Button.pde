@@ -26,8 +26,8 @@ class Button extends Rectangle {
     eai = false;
     screenSaver = false;
   }//end reset
-  float quitX, menuToPongX, pauseX, resetScoreY, twoPlayerX, onePlayerX, haiX, maiX, eaiX, screenSaverX;
-  void variablesUpdate(float v0, float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8, float v9) {
+  float quitX, menuToPongX, pauseX, resetScoreY, twoPlayerX, onePlayerX, haiX, maiX, eaiX, screenSaverX, muteSongX, muteSFXX, nightModeX;
+  void variablesUpdate(float v0, float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8, float v9, float v10, float v11, float v12, float v13) {
     quitX = v0;
     menuToPongX = v1;
     pauseX = v2;
@@ -38,6 +38,9 @@ class Button extends Rectangle {
     maiX = v7;
     eaiX = v8;
     screenSaverX = v9;
+    muteSongX = v10;
+    muteSFXX = v11;
+    nightModeX = v12;
   }//end variablesUpdate
   void universalMousePressed() {
     if (x == quitX) mousePressedExitFunction();
@@ -47,6 +50,9 @@ class Button extends Rectangle {
     if (x == twoPlayerX) mousePressedTwoPlayerFunction();
     if (x == onePlayerX) mousePressedOnePlayerFunction();
     if (x == screenSaverX) mousePressedScreenSaverFunction();
+    if (x == muteSongX) mousePressedMuteSongFunction();
+    if (x == muteSFXX) mousePressedMuteSFXFunction();
+    if (x == nightModeX) mousePressedNightModeFunction();
     if (dmai) {
       if (x == haiX) mousePressedHaiFunction();
       if (x == maiX) mousePressedMaiFunction();
@@ -81,6 +87,20 @@ class Button extends Rectangle {
     if (x == screenSaverX) {
       drawing(hoverOver, secondaryColor);
       rectText("ScreenSaver");
+    }
+    if (x == muteSongX) {
+      drawing(hoverOver, secondaryColor);
+      rectSwitchingText("PlaySong", "MuteSong", songs[currentSong].isMuted());
+    }
+    if (x == muteSFXX) {
+      drawing(hoverOver, secondaryColor);
+      //for ( int i=0; i<soundEffects.length; i++ ) {//technically neccesary for mute but makes the text bold when uncommented cause its playing more then once, 
+      rectSwitchingText(" PlaySFX ", " MuteSFX ", soundEffects[1].isMuted());//same functionality but not bold text, can be any sfx
+      //}
+    }
+    if (x == nightModeX) {
+      drawing(hoverOver, secondaryColor);
+      rectSwitchingText("Day Mode", "Night Mode", nightMode);
     }
     if (dmai) {
       if (x == haiX) {
@@ -166,7 +186,16 @@ class Button extends Rectangle {
       screenSaver = true;
       modeSwitch();
     }
-  }//end mousePressedEaiFunction
+  }//end mousePressedScreenSaverFunction
+  void mousePressedMuteSongFunction() {
+    if ( mouseX>=x && mouseX<=x+w && mouseY>= y && mouseY<=y+h ) mute();
+  }//end mousePressedMuteSongFunction
+  void mousePressedMuteSFXFunction() {
+    if ( mouseX>=x && mouseX<=x+w && mouseY>= y && mouseY<=y+h ) muteSFX();
+  }//end mousePressedMuteSFXFunction
+  void mousePressedNightModeFunction() {
+    if ( mouseX>=x && mouseX<=x+w && mouseY>= y && mouseY<=y+h ) nightMode();
+  }//end mousePressedNightModeFunction
   void rectText (String firstText) {
     drawText( height, ink, CENTER, CENTER, Font, textSpace+firstText+textSpace, x, y, w, h);
   }//end rectText
@@ -185,6 +214,13 @@ class Button extends Rectangle {
       dmai = true;
     }
   }//end dropMenu
+  void nightMode() {
+    if (nightMode) {
+      nightMode = false;
+    } else {
+      nightMode = true;
+    }
+  }//end nightMode
   color backgroundColor() {
     color nightMode = 0;
     return nightMode;

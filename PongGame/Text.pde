@@ -20,9 +20,9 @@ void textMousePressed() {}//end textMousePressed()
 void predrawText( color ink, float appHeight, int alignHorizontal, int alignVertical, PFont Font1 ) {
   fill(ink);
   textAlign (alignHorizontal, alignVertical);
-  textFont(Font, appHeight);
-  if(Font != null) { //Check if Font object is not null
-    textFont(Font, appHeight);
+  textFont(Font1, appHeight);
+  if(Font1 != null) { //Check if Font object is not null
+    textFont(Font1, appHeight);
   }
 }//end predrawText()
 //

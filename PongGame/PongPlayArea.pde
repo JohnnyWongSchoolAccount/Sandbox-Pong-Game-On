@@ -6,7 +6,6 @@ class PongPlayArea extends Rectangle {
   //
   PongPlayArea(float x, float y, float w, float h, color c) {
     super(x, y, w, h, c);
-    c = backgroundColor();
   }//end PongPlayArea
   //
   //Methods
@@ -14,7 +13,7 @@ class PongPlayArea extends Rectangle {
     if (pongOn) draw();
   }//end draw
   void draw() {
-    fill(c);
+    fill(secondaryColor);
     rect(x, y, w, h); //Pong Table
     stroke(255);
     line(mPlayAreaX, mPlayAreaYTop, mPlayAreaX, mPlayAreaYBottom);
@@ -34,7 +33,7 @@ class PongPlayArea extends Rectangle {
     return Color;
   }//end backgroundColor
   //Getters and Setters
-  void variablesUpdate( float goalWidth, float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8, float v9) {
+  void variablesUpdate( float goalWidth, float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8, float v9, float v10, float v11, float v12, float v13) {
     leftGoalXTop = x+goalWidth;
     leftGoalYTop = y;
     leftGoalXBottom = leftGoalXTop;

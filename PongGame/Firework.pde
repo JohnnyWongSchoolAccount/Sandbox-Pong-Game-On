@@ -37,20 +37,20 @@ class Firework extends Circle {
   //
   void reset() {}//end reset
   //
-  void variablesUpdate(float ballW, float g, float xParameter, float yParameter, float v4, float v5, float v6, float v7, float v8, float v9) {
+  void variablesUpdate(float v0, float g, float v2, float v3, float v4, float v5, float v6, float v7, float v8, float v9, float v10, float v11, float v12, float v13) {
     playAreaX = v4;
     playAreaY = v5;
     playAreaW = v6;
     playAreaH = v7;
-    firstBallW = ballW;
+    firstBallW = v0;
     for ( int i=0; i<fx.length; i++ ) {
       gravity = g;
-      this.fx[i] = xParameter;
-      this.fy[i] = yParameter;
+      this.fx[i] = v2;
+      this.fy[i] = v3;
       this.xVelocity[i] = random(-5, 5);
       this.yVelocity[i] = random(-5, 5);
       this.fc[i] = randomColor(); //RGB color
-      this.fw[i] = random(ballW/1.1);
+      this.fw[i] = random(firstBallW/1.1);
     }
   }//end variablesUpdate
   color backgroundColor() {

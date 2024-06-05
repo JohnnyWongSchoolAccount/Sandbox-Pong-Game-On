@@ -24,4 +24,21 @@ void concatenationOfMusicFiles() {
 void loopInf(int loopInf) {//loop inf
   songs[currentSong].pause();//substitute for delay() does not break the rest of code
   songs[currentSong].loop(loopInf);
-}//end loopInf()
+}//end loopInf
+void mute() { //mute button
+  if ( songs[currentSong].isMuted() ) {//button works when song is not playing
+    songs[currentSong].unmute();//switches off .mute()
+  } else {//if song is not muted
+    songs[currentSong].mute();//mutes song
+  }//end mute button
+}//end mute
+void muteSFX() {
+  for ( int i=0; i<soundEffects.length; i++ ) {
+    if ( soundEffects[i].isMuted() ) {//button works when song is not playing
+      soundEffects[i].unmute();//switches off .mute()
+    } else {//if song is not muted
+      soundEffects[i].mute();//mutes song
+    }//end mute button
+  }
+}//end muteSFX
+//end Audio subProgram

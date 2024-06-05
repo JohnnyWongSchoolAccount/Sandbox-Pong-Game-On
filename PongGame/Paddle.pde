@@ -38,7 +38,7 @@ class Paddle extends Rectangle {
       //empty no paddle movement
     }
   }//end keyPressed
-  void variablesUpdate(float playAreaMiddle, float startingPosition, float ballw, float playAreaY, float playAreaH, float v5, float v6, float v7, float v8, float v9) {//sp = starting position
+  void variablesUpdate(float playAreaMiddle, float startingPosition, float ballw, float playAreaY, float playAreaH, float v5, float v6, float v7, float v8, float v9, float v10, float v11, float v12, float v13) {//sp = starting position
     ballW = ballw;
     pay = playAreaY;//smallest Y value for paddle movement height/10
     pah = playAreaH;
@@ -77,8 +77,8 @@ class Paddle extends Rectangle {
   void paddleMove() {
     if (paddleUp) paddleUp();
     if (paddleDown) paddleDown();
-    if (onePlayer) rightPaddleAI(10);
-    if (screenSaver) screenSaver(10);
+    if (onePlayer) rightPaddleAI(14);
+    if (screenSaver) screenSaver(14);
   }//end paddleMove
   void paddleUp() {
     y -= (paddleTravel);//moving up
