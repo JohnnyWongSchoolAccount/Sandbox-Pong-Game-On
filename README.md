@@ -42,6 +42,15 @@ CS30 object orientated programming Project
  - Firework effct
    - upon a player scoring, varing in color and size, balls will be drawn effected by gravity to celebrate a score
  - Sound
+   - background song
+   - sound effects
+     - sound effects appear upon a score
+       - scoring sound effect changes upon achieveing more than 5 scores
+     - sound effects appear upon a paddle hitting the ball
+   - mute button for background song
+   - mute button for sound effects
+ - night mode button
+   - changes the color palette to remove blue light
  - Text
 # Easter Eggs Pong Features
  ---
