@@ -11,15 +11,23 @@ CS30 object orientated programming Project
      - exits the program
    - title text
      - displayes the title
- - Menu for choosing the game mode
+ - Game mode selection screen
    - two player option:
      - both left and right paddles that are moved by human input
    - one player options:
      - hard ai player to play against a human player
      - medium ai player to play against a human player
      - easy ai player to play against a human player
-   - screen saver option
+   - screen saver option:
      - two ai players who can score against eachother
+   - night mode option:
+     - changes the color palette to remove blue light
+   - Mute song option:
+     - Button that mutes background music
+     - Button unmutes the background music upon second click
+   - Mute sound effects option:
+     - Button that mutes sound effects
+     - Button unmutes the sound effects upon second click
  - Pong Game user interface
    - pause game button
      - stops the movement of the paddles and ball
@@ -44,13 +52,9 @@ CS30 object orientated programming Project
  - Sound
    - background song
    - sound effects
-     - sound effects appear upon a score
-       - scoring sound effect changes upon achieveing more than 5 scores
-     - sound effects appear upon a paddle hitting the ball
-   - mute button for background song
-   - mute button for sound effects
- - night mode button
-   - changes the color palette to remove blue light
+     - sound effects play upon a score
+       - upon achieveing more than 5 scores the sound effect changes
+     - sound effects play upon a collision with the paddle
  - Text
 # Easter Eggs Pong Features
  ---
