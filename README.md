@@ -47,7 +47,7 @@ CS30 object orientated programming Project
  - Temporary pause three second pause between scores
    - Count down
      - Durring the temporary pause a count down to the game restarting will initiate
- - Firework effct
+ - Firework effect
    - upon a player scoring, varing in color and size, balls will be drawn effected by gravity to celebrate a score
  - Sound
    - background song
